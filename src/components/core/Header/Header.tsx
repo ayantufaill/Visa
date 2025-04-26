@@ -6,10 +6,10 @@ const Header = () => {
     const router = useRouter();
 
     return (
-        <header className='bg-white'>
+        <header className='bg-white shadow-xl'>
 
-            <div className="h-16 !px-4 sm:!px-8 md:!px-16 py-4 shadow-xs flex justify-between items-center">
-                <h1 className="text-[#003A66] text-xl lg:text-3xl font-semibold">
+            <div className="h-16 !px-4 sm:!px-8 md:!px-16 py-4 flex justify-between items-center">
+                <h1 onClick={() => router.push("/")} className="text-[#003A66] text-xl lg:text-3xl font-semibold cursor-pointer hover:text-[#d63384] transition">
                     VisaFast
                 </h1>
 

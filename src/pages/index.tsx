@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+// import styles from "@/styles/Home.module.css";
 import HeroSection from "@/components/common/HeroSection/HeroSection";
 import WhyChoose from "@/components/common/WhyChoose/WhyChoose";
 import Packages from "@/components/common/Packages/Packages";
-import VisaCard from "@/components/common/VisaCard/VisaCard";
 import VisaDetails from "@/components/common/VisaDetails/VisaDetails";
 
 const geistSans = Geist({
@@ -33,7 +32,6 @@ export default function Home() {
         <Packages />
         <VisaDetails />
       </main>
-
     </>
   );
 }

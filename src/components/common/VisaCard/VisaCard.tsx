@@ -26,7 +26,7 @@ const VisaCard: React.FC<VisaCardProps> = ({ image, title, description, href }) 
             </div>
             <div className='flex flex-col justify-between gap-3 h-[45%] !mt-4 !p-3 !pb-6'>
                 <h4 className='text-xl text-[#003A66] font-semibold'>
-                    <span className='hover:cursor-pointer hover:text-[#d63384] hover:font-semibold'>{title}</span>
+                    <span className='hover:cursor-pointer hover:text-[#d63384] transition hover:font-semibold'>{title}</span>
                 </h4>
                 <p className='text-sm font-extralight text-[#42545E]'>{description}</p>
                 <Link href={href}>

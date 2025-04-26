@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 import { Fade } from 'react-awesome-reveal';
 
 const Packages = () => {
+    const router = useRouter();
     const visaPackages = [
         {
             title: "Normal Visa",
@@ -18,7 +20,7 @@ const Packages = () => {
             title: "Urgent Visa",
             description: "Processing time: 2 to 3 days",
             price: "$20",
-            color: "bg-[#12A856]",
+            color: "bg-green-500",
             extraDetails: [
                 "Priority processing",
                 "Guaranteed approval",
@@ -38,6 +40,11 @@ const Packages = () => {
         }
     ];
 
+    const handleClick = (pkg: any) => {
+        router.push("/apply/country");
+        localStorage.setItem("package", JSON.stringify(pkg))
+    }
+
     return (
         <section id='packages' className="!px-6 sm:!px-10 lg:!px-20 !py-12">
             <Fade direction='down'>
@@ -50,7 +57,7 @@ const Packages = () => {
                 {visaPackages.map((pkg, index) => (
                     <Fade key={index} direction='up'>
                         <div className='md:h-[400px]'>
-                            <div className={`border-2 flex flex-col justify-between bg-gray-100 !p-6 rounded-md ${index == 1 ? "h-[100%] border-[#12A856]" : "md:h-[90%] lg:h-[85%] border-transparent"} hover:scale-105 transition-transform duration-300 ease-in-out`}>
+                            <div className={`border-2 flex flex-col justify-between bg-gray-100 !p-6 rounded-md ${index == 1 ? "h-[100%] border-green-500" : "md:h-[90%] lg:h-[85%] border-transparent"} hover:scale-105 transition-transform duration-300 ease-in-out`}>
                                 <div>
                                     <div className="text-[#003A66] !mb-2  p-4 rounded-t-md !space-y-3">
                                         <h3 className="text-md md:text-xl font-semibold">{pkg.title}</h3>
@@ -66,7 +73,9 @@ const Packages = () => {
                                     </ul>
                                 </div>
 
-                                <button className={`w-full h-10 text-white rounded-sm cursor-pointer ${pkg.color}`}>
+                                <button
+                                    onClick={() => handleClick(pkg)}
+                                    className={`w-full h-10 text-white rounded-sm cursor-pointer ${pkg.color}`}>
                                     Get Started
                                 </button>
                             </div>
