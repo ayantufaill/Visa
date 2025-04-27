@@ -41,7 +41,7 @@ const Packages = () => {
     ];
 
     const handleClick = (pkg: any) => {
-        router.push("/apply/country");
+        router.push("/apply");
         localStorage.setItem("package", JSON.stringify(pkg))
     }
 

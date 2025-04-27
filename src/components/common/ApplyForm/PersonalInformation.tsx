@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { getNames } from 'country-list';
-import Pagination from '@/components/core/Pagination/Pagination';
-import { FaChevronDown } from 'react-icons/fa';
+import React, { useState} from 'react';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 
-const PersonalInformation = () => {
+interface PersonalInformationProps {
+    setStepNo: (nextStep: number) => void;
+}
+
+const PersonalInformation: React.FC<PersonalInformationProps> = ({ setStepNo }) => {
     const router = useRouter();
 
     const [data, setData] = useState({
@@ -17,7 +18,8 @@ const PersonalInformation = () => {
     const handleContinue = () => {
         if (data.name && data.email && data.contactNo) {
             localStorage.setItem("personalInfo", JSON.stringify(data));
-            router.push("/apply/passport-details");
+            // router.push("/apply/passport-details");
+            setStepNo(2);
         } else {
             toast.error("Please fill all fields.");
         }
@@ -28,11 +30,7 @@ const PersonalInformation = () => {
     };
 
     return (
-        <div className="!p-4 lg:!py-20 bg-gray-100 min-h-screen flex flex-col items-center">
-            <div className="w-full flex items-center justify-center">
-                <Pagination defaultStep={1} />
-            </div>
-
+        <div>
             {/* Name Input */}
             <div className="!my-4 w-[250px]">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 interface ProfileProps {
     loading: boolean;
     setLoading: (newValue: boolean) => void;
+    // setStepNo: ()
 }
 
 const ProfileSummaryCard: React.FC<ProfileProps> = ({ loading, setLoading }) => {

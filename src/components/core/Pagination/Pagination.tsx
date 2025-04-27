@@ -9,8 +9,6 @@ interface Props {
 const Pagination: React.FC<Props> = ({ defaultStep }) => {
     const router = useRouter();
 
-    const [selectedStep, setSelectedStep] = useState<number>(-1);
-
     const steps = [
         { label: 'Country/Region', icon: FaGlobe },
         { label: 'Personal\nInformation', icon: FaUserAlt },
@@ -18,16 +16,12 @@ const Pagination: React.FC<Props> = ({ defaultStep }) => {
         { label: 'Payment', icon: FaCreditCard },
     ];
 
-    useEffect(() => {
-        setSelectedStep(defaultStep);
-    }, [])
-
     return (
         <div className="relative max-w-[400px] z-1000">
             <div className="flex items-start justify-between !gap-8">
                 {steps.map((step, index) => {
                     const Icon = step.icon;
-                    const isCompletedOrSelected = index <= selectedStep;
+                    const isCompletedOrSelected = index <= defaultStep;
                     return (
                         <div key={index} className="flex flex-col items-center">
                             <div
